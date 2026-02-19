@@ -1,0 +1,566 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #0a0a0a, #1a1a2e);
+            color: #d4c5a9;
+            line-height: 1.6;
+            padding-top: 165px; 
+            /* Priestor pre fixovanú hlavičku (120px) + menu (45px) */
+        }
+
+        header {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 1px solid #8b7355;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-height: 150px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+
+/* Toto je pôvodný štýl pre samotný navigačný panel */
+nav {
+    position: fixed;
+    top: 150px; /* Presne pod hlavičkou */
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 30px; /* Tenký vodorovný panel */
+    background: #000000;
+    padding: 0;
+    z-index: 999;
+    border-top: 1px solid #8b7355;
+    border-bottom: 2px solid #8b7355;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    
+    /* Pridáme flexbox, aby sa obsah pekne centroval */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === NOVÉ PRAVIDLÁ PRE ZOZNAM A TEXT === */
+
+/* Základné štýly pre zoznam (odstránenie odrážok, centrovanie) */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row; /* Položky vedľa seba */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 0;
+}
+
+/* Štýly pre jednotlivé položky zoznamu (napr. medzery) */
+nav ul li {
+    padding: 0; /* Žiadne vertikálne medzery */
+}
+
+/* Kľúčová vlastnosť pre vodorovný text odkazu */
+nav ul li a {
+    text-decoration: none;
+    color: #d4c5a9;
+       
+    /* Text je normálny vodorovný */
+    writing-mode: initial; 
+    text-orientation: initial;
+    letter-spacing: 0px;
+    font-size: 1em;
+    font-weight: 500;
+
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+  nav li:not(:last-child)::after {
+            content: "◆";
+            color: #8b7355;
+            margin: 0 15px;
+            font-size: 0.95em;
+            vertical-align: middle;
+        }
+
+
+nav a:hover {
+            color: #d4c5a9;
+            background-color: rgba(102, 102, 102, 0.1);
+        }
+
+nav a:active {
+            color: #d4c5a9;
+        }
+
+
+
+
+
+
+
+
+        h1 {
+            font-size: 1.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4c5a9;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #8b7355;
+            margin-top: 0.3rem;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-size: 1.2rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .place-card {
+            background: rgba(20, 20, 30, 0.6);
+            border: 1px solid #8b7355;
+            margin: 3rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .place-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(139, 115, 85, 0.3);
+        }
+
+        .place-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #d4c5a9;
+            border-bottom: 2px solid #8b7355;
+            padding-bottom: 0.5rem;
+        }
+
+        .place-card p {
+            margin: 1rem 1rem;
+            text-align: justify;
+            font-size: 1.2rem;
+        }
+
+	.zdroje {
+            margin: 3rem 0;
+            padding: 2rem;
+            font-style: italic;
+        }
+
+        /* Offset pre všetky sekcie s ID */
+        section[id] {
+            scroll-margin-top: 100px !important;
+        }
+        
+        /* Offset aj pre div elementy s ID */
+        div[id] {
+            scroll-margin-top: 100px !important;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        @media (max-width: 768px) {
+            section[id] {
+                scroll-margin-top: 25px !important;
+            }
+            
+            div[id] {
+                scroll-margin-top: 25px !important;
+            }
+            
+            html {
+                scroll-padding-top: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section[id] {
+                scroll-margin-top: 25px !important;
+            }
+            
+            div[id] {
+                scroll-margin-top: 25px !important;
+            }
+            
+            html {
+                scroll-padding-top: 25px;
+            }
+        }
+
+       .zdroje ul {
+            margin: 1rem 1rem;
+            text-align: left;
+            font-size: 1.0rem;
+        }
+
+	.zdroje h2 {
+            font-size: 1.2rem;
+            margin: 0.5rem 1rem;
+            color: #8b7355;
+
+        }
+
+        .image-container img {
+            max-width: 600px;
+            height: auto;
+            border: 5px solid #d4c5a9;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+        }
+
+       .image-container p {
+            margin: 1rem 1rem;
+            text-align: center;
+            font-style: italic;
+ 	        color: #d4c5a9;
+            font-size: 1.0rem;
+	    }
+
+	.image-container-small img {
+            max-width: 300px;
+            height: auto;
+            color: #8b7355;
+            border: 5px solid #d4c5a9;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+        }
+
+       .image-container-small p {
+            margin: 1rem 1rem;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.0rem;
+	    color: #d4c5a9;
+    	}
+
+       .video-container {
+            max-width: 640px;
+            max-height: 480px;
+            margin: 1.5rem auto;
+            overflow: hidden;
+	    object-fit: contain;
+            display: block;
+	    }
+
+	.video-container video {
+    	    width: 100%; 
+    	    height: auto; 
+    	    display: block; 
+	    }
+	  
+	.video-container p {
+            margin: 1rem 1rem;
+            text-align: center;
+            font-style: italic;
+ 	    color: #d4c5a9;
+            font-size: 1.0rem;
+	    }
+
+        .audio-container {
+            max-width: 350px; /* Kratší panel ovládača */
+            margin: 1.5rem auto;  /* Vycentrovanie na stred */
+        }
+
+        /* Štýl pre samotný audio prvok, aby vyplnil kontajner */
+        .audio-container audio {
+            width: 100%;
+        }
+	
+	.audio-container p {
+            margin: 1rem 1rem;
+            text-align: center;
+            font-style: italic;
+ 	    color: #d4c5a9;
+            font-size: 1.0rem;
+	    }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #8b7355, transparent);
+            margin: 3rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(10, 10, 10, 0.9);
+            border-top: 2px solid #8b7355;
+            margin-top: 4rem;
+            color: #8b7355;
+        }
+
+        /* RESPONSIVITA */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 0; /* Zrušenie paddingu na mobiloch */
+                padding-bottom: 70px; /* Priestor pre fixované menu dole */
+            }
+
+            header {
+                position: relative; /* Hlavička nie je fixovaná na mobiloch */
+                max-height: none; /* Zrušenie max-height na mobiloch */
+                padding: 1.5rem 0; /* Väčší padding pre mobily */
+            }
+
+            h1 {
+                font-size: 1.4rem;
+                letter-spacing: 2px;
+            }
+	    .subtitle {
+                font-size: 1rem;
+            }
+            
+	    nav {
+        	position: fixed;
+        	bottom: 0px;
+        	width: 100vw; /* Šírka sa prispôsobí obsahu */
+        	left: 50%;
+        	transform: translateX(-50%); /* Centrovanie */
+	        /* === PREPÍSANIE PÔVODNÝCH PRAVIDIEL === */
+        	top: auto;
+        	right: auto;
+        	height: auto;
+                /* === ZMENY PODĽA POŽIADAVKY === */
+        	background: black; /* 1. Pozadie zmenené na čierne */
+        	border: 1px solid #8b7355; /* 2. Orámovanie, aby ladilo */
+        	/* ----------------------------- */
+	        border-radius: 8px;
+        	padding: 5px 5px;
+        	box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+             }
+
+    	nav ul {
+        	flex-direction: row; /* Položky vedľa seba */
+        	flex-wrap: nowrap;
+        	gap: 8px;
+        	padding: 0;
+        	margin: 0;
+        	align-items: center;
+		list-style: none;
+    		}
+
+    	nav ul li a {
+        	/* === TEXT NIE JE OTOČENÝ === */
+        	writing-mode: initial;
+        	text-orientation: initial;
+        	/* -------------------------- */
+                font-size: 0.7em;
+        	padding: 5px 5px;
+        	border-radius: 5px;
+	        /* === ZMENY PODĽA POŽIADAVKY === */
+        	color: #8b7355; /* 3. Farba textu, aby bola viditeľná na čiernej */
+        	/* ----------------------------- */
+    		}
+
+    	/* Úprava :hover štýlu pre tmavé pozadie */
+    	nav a:hover,
+    	nav a:focus {
+        	background: #000; /* Tmavosivá pre hover */
+        	color: #d4c5a9;       /* Svetlejší text pri hover */
+    		}
+	
+	nav li:not(:last-child)::after {
+        	content: none; /* Toto povie prehliadaču, aby nevkladal žiadny obsah */
+    	}
+
+        .container {
+                padding: 1rem;
+            }
+	    
+        .image-container img {
+                max-width: 100%;
+            }
+	
+	.image-container-small img {
+                max-width: 100%;
+            }
+            
+	.intro {
+                padding: 1rem 1rem;
+                font-size: 1rem;
+                scroll-margin-top: 20px;
+            }
+
+        .place-card {
+                padding: 1rem;
+                margin: 1rem 0;
+                scroll-margin-top: 20px;
+            }
+
+        .video-container {
+                width: 100%;
+	        height: auto; 
+            }
+ 	    
+        .video-container video {
+                width: 100%;
+	        height: auto; 
+            }
+
+        .zdroje {
+                scroll-margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 0; /* Zrušenie paddingu na mobiloch */
+                padding-bottom: 70px; /* Priestor pre fixované menu dole */
+            }
+
+            header {
+                position: relative; /* Hlavička nie je fixovaná na mobiloch */
+                max-height: none; /* Zrušenie max-height na mobiloch */
+                padding: 1.5rem 0; /* Väčší padding pre mobily */
+            }
+
+            h1 {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+            .subtitle {
+                font-size: 0.9rem;
+            }    
+			
+    	    nav {
+        	position: fixed;
+        	bottom: 0px;
+        	width: 100vw; /* Šírka sa prispôsobí obsahu */
+        	left: 50%;
+        	transform: translateX(-50%); /* Centrovanie */
+  	      	/* === PREPÍSANIE PÔVODNÝCH PRAVIDIEL === */
+        	top: auto;
+        	right: auto;
+        	height: auto;
+        	/* === ZMENY PODĽA POŽIADAVKY === */
+        	background: black; /* 1. Pozadie zmenené na čierne */
+        	border: 1px solid #8b7355; /* 2. Orámovanie, aby ladilo */
+        	/* ----------------------------- */
+ 	       	border-radius: 8px;
+        	padding: 5px 5px;
+        	box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    		}
+
+    	     nav ul {
+        	flex-direction: row; /* Položky vedľa seba */
+        	flex-wrap: nowrap;
+        	gap: 8px;
+        	padding: 0;
+        	margin: 0;
+        	align-items: center;
+		list-style: none;
+    		}
+
+    	    nav ul li a {
+        	/* === TEXT NIE JE OTOČENÝ === */
+        	writing-mode: initial;
+        	text-orientation: initial;
+        	/* -------------------------- */
+       	       	font-size: 0.7em;
+        	padding: 5px 5px;
+        	border-radius: 5px;
+ 	        /* === ZMENY PODĽA POŽIADAVKY === */
+        	color: #8b7355; /* 3. Farba textu, aby bola viditeľná na čiernej */
+        	/* ----------------------------- */
+    		}
+ 	   	/* Úprava :hover štýlu pre tmavé pozadie */
+    	   nav a:hover,
+    	   nav a:focus {
+        	background: #000; /* Tmavosivá pre hover */
+        	color: #d4c5a9;       /* Svetlejší text pri hover */
+    		}
+	
+	   nav li:not(:last-child)::after {
+        	content: none; /* Toto povie prehliadaču, aby nevkladal žiadny obsah */
+    		}
+	
+           header h1 {
+                font-size: 1.5em;
+            	}
+
+          .quote {
+                font-size: 1em;
+            	}
+
+           .intro {
+                font-size: 0.9rem;
+                scroll-margin-top: 20px;
+            	}
+
+            .place-card h2 {
+                font-size: 1.4rem;
+            	}
+
+            .place-card p {
+                font-size: 1rem;
+            	}
+	   
+            .image-container img {
+                 max-width: 100%;
+             	}
+	
+	    .image-container-small img {
+                max-width: 100%;
+            	}
+	    
+            .video-container {
+                width: 100%;
+		        height: auto; 
+            	}
+ 	        
+	    .video-container video {
+                width: 100%;
+	        height: auto; 
+            	}
+
+            .place-card {
+                scroll-margin-top: 20px;
+            	}
+
+            .zdroje {
+                scroll-margin-top: 20px;
+            	}
+        }

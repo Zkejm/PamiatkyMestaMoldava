@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pamätihodnosti mesta Moldava nad Bodvou - synagóga</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #0a0a0a, #1a1a2e);
+            color: #d4c5a9;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(10, 10, 10, 0.9);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 2px solid #8b7355;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.0rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #d4c5a9;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .subtitle {
+            font-style: italic;
+            color: #8b7355;
+            margin-top: 0.5rem;
+            font-size: 1.8rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-size: 1.2rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 2.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .place-card {
+            background: rgba(20, 20, 30, 0.6);
+            border: 1px solid #8b7355;
+            margin: 3rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .place-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(139, 115, 85, 0.3);
+        }
+
+        .place-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #d4c5a9;
+            border-bottom: 2px solid #8b7355;
+            padding-bottom: 0.5rem;
+        }
+
+        .place-card p {
+            margin: 1rem 1rem;
+            text-align: justify;
+            font-size: 1.2rem;
+        }
+
+	    .zdroje {
+            margin: 3rem 0;
+            padding: 2rem;
+            font-style: italic;
+  
+        }
+
+       .zdroje ul {
+            margin: 1rem 1rem;
+            text-align: left;
+            font-size: 1.0rem;
+        }
+
+	    .zdroje h2 {
+            font-size: 1.2rem;
+            margin: 0.5rem 1rem;
+            color: #8b7355;
+
+        }
+
+
+
+        .image-container img {
+            max-width: 600px;
+            height: auto;
+ 	        border: 5px solid #d4c5a9;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+        }
+
+       .image-container p {
+            margin: 1rem 1rem;
+            text-align: center;
+            font-style: italic;
+ 	        color: #d4c5a9;
+            font-size: 1.0rem;
+	    }
+
+	    .image-container-small img {
+            max-width: 300px;
+            height: auto;
+            color: #8b7355;
+            border: 5px solid #d4c5a9;
+            object-fit: contain;
+            display: block;
+            margin: auto;
+        }
+
+        .image-container-small p {
+            margin: 1rem 1rem;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.0rem;
+	        color: #d4c5a9;
+    	}
+
+       .video-container {
+            max-width: 640px;
+            max-height: 480px;
+            margin: 1.5rem auto;
+            overflow: hidden;
+	        object-fit: contain;
+            display: block;
+	    }
+
+	    .video-container video {
+    		width: 100%; 
+    		height: auto; 
+    		display: block; 
+	    }
+	   .video-container p {
+            margin: 1rem 1rem;
+            text-align: center;
+            font-style: italic;
+ 	        color: #d4c5a9;
+            font-size: 1.0rem;
+	    }
+
+
+        .audio-container {
+            max-width: 350px; /* Kratší panel ovládača */
+            margin: 1.5rem auto;  /* Vycentrovanie na stred */
+        }
+
+        /* Štýl pre samotný audio prvok, aby vyplnil kontajner */
+        .audio-container audio {
+            width: 100%;
+        }
+	.audio-container p {
+            margin: 1rem 1rem;
+            text-align: center;
+            font-style: italic;
+ 	        color: #d4c5a9;
+            font-size: 1.0rem;
+	    }
+
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #8b7355, transparent);
+            margin: 3rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(10, 10, 10, 0.9);
+            border-top: 2px solid #8b7355;
+            margin-top: 4rem;
+            color: #8b7355;
+        }
+
+        /* RESPONSIVITA */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+	    
+            .image-container img {
+                max-width: 100%;
+             }
+	
+	        .image-container-small img {
+                max-width: 100%;
+            }
+            
+	        .intro {
+                padding: 2rem 1rem;
+                font-size: 1rem;
+            }
+
+            .place-card {
+                padding: 1rem;
+                margin: 1.5rem 0;
+            }
+
+            .video-container {
+                width: 100%;
+		        height: auto; 
+            }
+ 	    
+            .video-container video {
+                width: 100%;
+		        height: auto; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.4rem;
+                letter-spacing: 2px;
+            }
+
+            .intro {
+                font-size: 0.9rem;
+            }
+
+            .place-card h2 {
+                font-size: 1.4rem;
+            }
+
+            .place-card p {
+                font-size: 1rem;
+            }
+	   
+            .image-container img {
+                 max-width: 100%;
+             }
+	
+	        .image-container-small img {
+                  max-width: 100%;
+            }
+	    
+            .video-container {
+                width: 100%;
+		        height: auto; 
+            }
+ 	        .video-container video {
+                width: 100%;
+		        height: auto; 
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Pamätihodnosti mesta <br>Moldava nad Bodvou</h1>
+        <p class="subtitle">Kostol reformovanej cirkvi</p>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <p>Prechádzajte sa s nami po stopách histórie. <br>Každé miesto skrýva príbeh, každý kameň si veľa pamätá...</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- MIESTO 1 -->
+        <div class="place-card">
+            <h2>História kalvínov</h2>
+            <p>Od 60.rokov 17.storočia začala v Moldave nastupovať rekatolizácia, ktorá v okolí nadobudla radikálnu podobu vďaka jezuitsského pátrovy Hyrkovi.</p> 
+	        <div class="image-container-small">
+                    <img src="pohladnica_20.roky_20.storočia.jpg" alt="Kostol reformovanej cirkvi na začiatku 20,storočia"><p>Obr. 1 Kostol reformovanej cirkvi na začiatku 20,storočia (pohľadnica)</p>
+            </div>
+           </div>
+            <p>Moldavský kostol, fary  a škola sa striedali v rukách katolíkov a kalvínov. Dekrétom v roku 1688 bol vrátení katolíkom ale o 16 rokov neskôr sa dostal opäť do rúk kalvínov. Snahy kalvínov definitívne zmrazilo ukončenie protihabsburských postavení. Prijatím Satmárskeho mieru v roku 1711 sa kalvínsky chrám, vrátil katolíkom a kalvínom sa už nikdy nepodarilo získať chrám späť. Základy chrámu boli položené na rovnokom mieste ako stojí dnešných.
+
+            </p>
+           </div>
+    </div>
+
+    <div class="divider"></div>
+
+        <!-- MIESTO 2 -->
+        <div class="place-card">
+            <h2>Nová éra kalvínov</h2>
+            <p>Novým miesto bohoslužieb a útočiskom kalvínov v moldave sa stal improvizovaný drevený kostol na strom cintoríne(blízko dnešnej Kalvínskej ulice a starej autobusovej stanice).</p>
+            <div class="image-container">
+                    <img src="pohladnica_rok1930.jpg" alt="Kostol v roku 1930"><p>Obr. 2 Pohľad na kostol v roku 1930 (pohľadnica)</p>
+            </div>
+            <p>Ich postavenie sa začalo zlepšovať od polovice 18.storočia.V roku 1753 sa kalvínom podarilo dostať povolenie na výstavbu vlastnej fary o 20 rokov neskôr sa im podarilo stavbu dokončiť čím získali svoj dôstojný chrám. Základy chrámu boli umiestnené na rovnakom mieste ako stojí dnešný chrám. Prostriedkami na výstavbu chrámu prispelo mesto, cechy a veriaci. Neskôr k kostolu bola dostavaná drevená kostolná veža.</p>
+        </div>
+
+
+        <div class="divider"></div>
+
+        <!-- MIESTO 3 -->
+        <div class="place-card">
+            <h2>Prestavba Kostola</h2>
+            <p>Po prijatí Tolerančného patentu Moldavský kalvíni požiadali o výstavbu murovanej kostolnej veže. Rožňavský kamenársky majster, ktorí bol najatý na vystavbu kostolnej veže, dokončil prirýchlo, čo viedlo k zruteniu kostolnej veži a časti kostolného múru na Vianoce v roku 1784. S opravami a výstavbou začali nasledujúci rok. Dokončené boli v roku 1789, v tom období, keď refomovaný kostol ohradili s múrom a dvomi klasicistickými portálmi.</p>
+        <div class="image-container">
+            <img src="reformovany_kostol_1.jpg" alt="Kostol počas 1.svetovej vojny"><p>Obr. 3 Budova Kostola počas 1.svetovej vojny </p>
+       	<p>Veľkému požiaru mesta sa nevyhol ani kostol reformovanej cirkvi, ktorý ho úplne spustošil. Neskôr sa na ňom podpísali ďalšie požiare a vojny, v dôsledku ktorej zanikli niektoré pôvodné prvky kostola </p>
+        <div class="image-container">
+            <img src="reformovany_kostol_2.jpg"  lt="Kostol počas 2.svetovej vojny">
+            <p>Obr. 4 Kostol počas 2.svetovej vojny</p>
+        </div>
+    </div> 
+		
+	<div class="place-card">
+            <h2>Kostol reformovanej cirkvi očami umelej inteligencie</h2>
+	        <p>Vypočujte si pieseň o kostole reformovanej cirkvi v moldave :</p>				 
+	        <div class="audio-container">
+		        <audio controls>
+                    <source src="Kamenný chrám-2.mp3" type="audio/mpeg">
+		        </audio>
+   	        </div>
+			
+<div class="image-container">
+<p>Zdroj: vytvorené pomocou AI nástroja https://suno.com/ </p>
+</div>
+
+
+			<p>Pozrite si náučné video o našej synagóge:</p>
+	        <div class="video-container">
+			    <video controls>
+                  <source src="" type="video/mp4">Váš prehliadač nepodporuje prehrávanie videa.
+			    </video>
+<p>Zdroj: tím GŠM 7, zvuk vytvorený pomocou AI nástroja v programe </p>        
+			</div>
+		  
+  <p>Ilustratívny obrázok kostola počas vojny a požiarov :</p>
+			    <div class="image-container-small">
+                    <img src="kostol_reformovanej_cirkvi.png" alt="Bombardovanie kostola"><p>Zdroj: vytvorené pomocou AI nástroja https://chatgpt.com/ </p>
+
+                </div>
+
+        </div>
+    
+        <div class="zdroje">
+            <h2>Zdroje</h2>
+            <ul>
+            <li>DANKO, Dalibor. Moldava nad Bodvou na starých pohľadniciach. Premeny mesta do prvej polovice 20. storočia. Moldava nad Bodvou : Mestské kultúrne stredisko v Moldave nad Bodvou, 2023, s. 96 - 98.
+ </li>
+            <li>KOVÁCS, Béla. A szepsii ev. ref. egyház története levéltári okmányok s az egyházi feljegyzések alapján. Sárospatak: Szepsii ev. ref. egyház, 1896, 93 s.
+ </li>
+             <liK>sp = Súpis pamiatok na Slovensku. II. zv. Bratislava: Obzor, 1968, s. 336.
+
+            </ul>
+            <h2>Obrazový materiál</h2>
+            <ul>
+            <li>Obr. 1, Obr. 2 - pohľadnice zdroj: zo zbierky D. Danka </li>
+            <li>Obr. 3, Obr. 4 zdroj: zbierka rodiny Ráczovcov</li>
+            </ul>
+        </div>
+</div>
+
+<footer>
+        <p>&copy; 2025 tím GŠM7, Moldava nad Bodvou | Pamätihodnosti mesta </p>
+</footer>
+</body>
+</html>
